@@ -1,0 +1,288 @@
+@import url("fonts.css");
+@import url("null.css");
+
+html,
+body {
+  font-family: var(--fonf-family), sans-serif;
+  min-height: 100%;
+}
+
+:root {
+  --fonf-family: "Plus Jakarta Sans";
+  --main-color: #0000;
+  --color-text: #ffff;
+  --primary-color: #4475f2;
+  --color-desc: #5e6282;
+  --color-heading: #181e4b;
+  --color-link__active: #4737ff;
+  --color-link__unactive: #9a9ea6;
+  --color-placeholder: #9c9c9c;
+  --color-border: #dedede;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Обрізає вміст, який виходить за межі елемента, без відображення смуг прокрутки. Це схоже на overflow: hidden;, але без можливості прокрутки. */
+  overflow: clip;
+}
+/* властивість flex-row розтягує main завжди на всю висоту вьюпрту, тим самим притискає footer донизу екрану */
+.wrapper > main {
+  flex-grow: 1;
+  width: 100%; /* Додано для заповнення ширини */
+}
+/* селектор атрибуту класу,  */
+[class*="__container"] {
+  /* розширили контейнер на величину паддінгів зліва иа справа */
+  max-width: 1230px;
+  padding-inline: 15px;
+  margin: 0 auto;
+}
+.link {
+  text-decoration: none;
+}
+/* Components */
+
+/* HEADER */
+
+.header__page {
+  position: relative;
+  z-index: 44;
+}
+.header__container {
+  padding-top: 77px;
+  display: flex;
+  gap: 125px;
+  align-items: center;
+}
+
+.header-nav {
+}
+.nav-list {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-item {
+}
+.nav-item-link {
+  color: var(--color-link__unactive);
+}
+
+@media (any-hover: hover) {
+  .nav-item-link:hover {
+    color: var(--color-link__active);
+  }
+}
+
+/* HERO */
+
+.hero {
+  padding-top: 62px;
+  margin-bottom: 200px;
+}
+
+@media screen and (min-width: 1200px) {
+  .hero__container {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1199.99px) {
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+/* flex: 0 1 50%;
+ Встановлює гнучкість для елемента .hero-content.
+0: flex-grow - елемент не буде рости, щоб заповнити додатковий простір.
+1: flex-shrink - елемент може зменшуватися, щоб поміститися в контейнер.
+50%: flex-basis - початкова ширина елемента буде 50% від ширини контейнера. */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 0 1 50%;
+  display: flex;
+  /* flex-wrap: nowrap; */
+  flex-direction: column;
+  gap: 30px;
+}
+.hero-title {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 76px;
+  line-height: 117%;
+  letter-spacing: -0.04em;
+  color: var(--color-heading);
+  width: 600px;
+}
+.hero-title-link {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--primary-color);
+}
+
+@media screen and (max-width: 1018px) {
+  .hero-title-link {
+    text-shadow: 2px 2px 1px #181e4b;
+  }
+}
+
+.hero-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 187%;
+  color: var(--color-desc);
+  width: 501px;
+}
+.hero-content-link {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--color-text); /* Колір тексту */
+  padding: 18px 54px; /* Відступи всередині кнопки */
+  border-radius: 5px; /* Закруглені кути */
+  transition: background-color 0.3s; /* Плавний перехід кольору фону */
+  margin-top: 20px; /* Відступ зверху */
+  align-self: flex-start; /*Вирівнювання по початку контейнера */
+  box-shadow: 1px 1px 1px #181e4b;
+}
+
+@media screen and (min-width: 889px) {
+  .hero-content-link {
+    box-shadow: none;
+  }
+}
+
+.hero-content-link:hover {
+  background-color: #365bbf; /* Зміна кольору при наведенні */
+}
+.hero-images {
+  position: relative;
+  z-index: 33;
+  flex: 0 1 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  grid-template-rows: repeat(2, 1fr);
+  /* column-gap: 22px; */
+}
+
+.hero-image {
+  border-radius: 10px;
+  /* box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25); */
+}
+.hero-link01 {
+  grid-row: span 2;
+  align-self: end;
+  /* padding-bottom: 10px; */
+}
+.hero-link03 {
+  grid-row: span 2;
+  align-self: center;
+  justify-self: end;
+}
+.hero-link04 {
+  align-self: end;
+  justify-self: end;
+}
+.hero-cover {
+}
+.cover-left {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.cover-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* section FEATURES */
+
+.features {
+  margin-bottom: 119px;
+}
+
+@media screen and (min-width: 990px) {
+  .features {
+    margin-bottom: 219px;
+  }
+}
+.features__container {
+}
+.title-component {
+  margin-bottom: 90px;
+}
+.section-title {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+.section_about {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 135%;
+  letter-spacing: 0.01em;
+  color: var(--color-heading);
+}
+
+.features-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+@media screen and (min-width: 970px) {
+  .features-list {
+    justify-content: space-between;
+  }
+}
+.features-item {
+  /* 0:flex-grow (не буде рости); 1:flex-shrink(може зменшуватися); 280px:flex-basis */
+  flex: 0 1 280px;
+}
+
+.features-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #4475f2;
+  width: 102px;
+  height: 102px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.features-label {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #000;
+  margin-bottom: 28px;
+}
+.features-desc {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 187%;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--desc);
+}
+
+/* section SERVICES */
