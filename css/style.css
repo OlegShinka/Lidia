@@ -72,14 +72,22 @@ body {
 .header__container {
   padding-top: 77px;
   display: flex;
-  gap: 125px;
+  gap: 25px;
   align-items: center;
+}
+
+@media screen and (min-width: 580px) {
+  .header__container {
+    gap: 125px;
+  }
 }
 
 .header-nav {
 }
 .nav-list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
 }
 
@@ -133,12 +141,19 @@ body {
 .hero-title {
   font-family: var(--font-family);
   font-weight: 800;
-  font-size: 76px;
+  font-size: 38px;
   line-height: 117%;
   letter-spacing: -0.04em;
   color: var(--color-heading);
-  width: 600px;
+  max-width: 600px;
 }
+
+@media screen and (min-width: 760px) {
+  .hero-title {
+    font-size: 76px;
+  }
+}
+
 .hero-title-link {
   text-decoration: underline;
   text-decoration-skip-ink: none;
@@ -166,7 +181,7 @@ body {
   padding: 18px 54px; /* Відступи всередині кнопки */
   border-radius: 5px; /* Закруглені кути */
   transition: background-color 0.3s; /* Плавний перехід кольору фону */
-  margin-top: 20px; /* Відступ зверху */
+
   align-self: flex-start; /*Вирівнювання по початку контейнера */
   box-shadow: 1px 1px 1px #181e4b;
 }
@@ -463,21 +478,30 @@ body {
   margin-bottom: 240px;
 }
 
-.location_pic {
-  background-image: url("../img/location/Location.jpg");
-  width: 1200px;
+.map-link {
+  width: 100%;
   height: 405px;
-  flex-shrink: 0;
 }
 
 /* FOOTER */
 
 .footer-info {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 145px;
+  align-items: center;
+  gap: 70px;
   margin-bottom: 94px;
 }
+
+@media screen and (min-width: 760px) {
+  .footer-info {
+    flex-direction: row;
+    gap: 145px;
+  }
+}
+
 .footer-made {
 }
 .made-label {
